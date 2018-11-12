@@ -10,15 +10,15 @@
 <head>
     <title>Jogar</title>
 
-    <form action="ComecarJogo" method="post">
+    <form action="prepararJogo" method="post">
 
         <label>Nome</label>
         <input type="text" name="nome" id="txtNome"><br>
 
         <label>Dificuldade</label><br>
-        <input type="radio" name="dificuldade" value="Fácil"> Fácil<br>
-        <input type="radio" name="dificuldade" value="Médio"> Médio<br>
-        <input type="radio" name="dificuldade" value="Difícil"> Difícil<br>
+        <input type="radio" name="dificuldade" value="facil"> Fácil<br>
+        <input type="radio" name="dificuldade" value="medio"> Médio<br>
+        <input type="radio" name="dificuldade" value="dificil"> Difícil<br>
 
         <input type="submit" value="Jogar">
     </form>

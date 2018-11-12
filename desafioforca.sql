@@ -32,3 +32,10 @@ create table jogo(
     FOREIGN KEY (idDificuldade)
       REFERENCES dificuldade(id)
 );
+
+insert into dificuldade(nome)
+values('facil'),('medio'),('dificil');
+
+insert into Situacao(nome)
+values('pausado'),('finalizado');
+

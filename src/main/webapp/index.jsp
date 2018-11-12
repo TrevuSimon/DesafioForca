@@ -2,10 +2,7 @@
 <body>
 <h2>Hello World!</h2>
 
-<form action="jogar" method="post">
-    <input type="submit" id="btnJogar" value="Jogar">
-</form>
-
+<a href="controller?acao=jogar">Jogar</a>
 
 <input type="button" id="btnGerarRelatorios" value="Gerar relatorios">
 
