@@ -9,7 +9,7 @@ public class Dificuldade {
         if("facil".equals(dificuldade)){
             this.setNome(dificuldade);
             this.setId(1);
-            this.vidas = 7;
+            this.vidas = 3;
         }else if("medio".equals(dificuldade)){
             this.setNome(dificuldade);
             this.setId(2);
@@ -17,7 +17,7 @@ public class Dificuldade {
         }else{
             this.setNome(dificuldade);
             this.setId(3);
-            this.vidas = 3;
+            this.vidas = 7;
         }
     }
 

@@ -43,4 +43,46 @@ public class JogoDAOImpl implements JogoDAO {
 
         return 0;
     }
+
+    @Override
+    public boolean cadastrarPalavra(Jogo jogo) {
+        //TODO implementar cadastrar palavra
+
+        try(Connection connection = MySqlConnectionProvider.abrirConexao()){
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + jogo.getId());
+            if (resultSet.first()) {
+                resultSet.updateString("palavra", jogo.getNome());
+                resultSet.updateRow();
+                return resultSet.rowUpdated();
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public Jogo pesquisarJogoEmAndamento(Jogo jogo) {
+        try (Connection connection = MySqlConnectionProvider.abrirConexao()) {
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "select * from jogo where nome = ? and idDificuldade = ?",
+                    Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, jogo.getNome());
+            preparedStatement.setInt(2, jogo.getDificuldade().getVidas());
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.first()) {
+                jogo.setPalavra(resultSet.getString("palavra"));
+                return jogo;
+            }
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
 }

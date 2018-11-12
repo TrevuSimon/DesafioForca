@@ -11,6 +11,9 @@ public class Jogo {
     private Situacao situacao;
     private int vidas;
 
+    private String palavra;
+    private String chute;
+
     public Jogo(String nome, String dificuldade) {
         this.nome = nome;
         this.dataInicio = new Date();
@@ -61,5 +64,21 @@ public class Jogo {
 
     public void setVidas(int vidas) {
         this.vidas = vidas;
+    }
+
+    public String getPalavra() {
+        return palavra;
+    }
+
+    public void setPalavra(String palavra) {
+        this.palavra = palavra;
+    }
+
+    public String getChute() {
+        return chute;
+    }
+
+    public void setChute(String chute) {
+        this.chute = chute;
     }
 }
