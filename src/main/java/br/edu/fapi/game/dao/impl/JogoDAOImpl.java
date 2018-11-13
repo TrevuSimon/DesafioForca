@@ -53,7 +53,7 @@ public class JogoDAOImpl implements JogoDAO {
 
             ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + jogo.getId());
             if (resultSet.first()) {
-                resultSet.updateString("palavra", jogo.getNome());
+                resultSet.updateString("palavra", jogo.getPalavra());
                 resultSet.updateRow();
                 return resultSet.rowUpdated();
             }
@@ -72,7 +72,7 @@ public class JogoDAOImpl implements JogoDAO {
                     "select * from jogo where nome = ? and idDificuldade = ?",
                     Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, jogo.getNome());
-            preparedStatement.setInt(2, jogo.getDificuldade().getVidas());
+            preparedStatement.setInt(2, jogo.getDificuldade().getId());
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.first()) {

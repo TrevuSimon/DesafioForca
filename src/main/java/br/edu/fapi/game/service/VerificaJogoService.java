@@ -10,9 +10,9 @@ public class VerificaJogoService {
         JogoDAO jogoDAO = new JogoDAOImpl();
 
         if(jogoDAO.pesquisarJogoEmAndamento(jogo) == null){
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
 

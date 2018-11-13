@@ -29,7 +29,7 @@ public class PrepararJogoServlet extends HttpServlet {
             requestDispatcher.forward(req, resp);
         }else {
             JogoDAO jogoDAO = new JogoDAOImpl();
-            jogoDAO.cadastrarPalavra(jogo);
+            jogoDAO.cadastrarJogo(jogo);
 
             req.getSession().setAttribute("jogo.atual", jogo);
 

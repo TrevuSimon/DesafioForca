@@ -10,10 +10,12 @@
 <head>
     <title>Palavra</title>
 
-    <form action="escolherPalavra" method="post">
+    <form action="prepararPalavra" method="post">
 
-        <label>Nome</label>
+        <label>Palavra</label>
         <input type="text" name="palavra" id="txtPalavra"><br>
+
+        <input type="submit" value="Pronto">
     </form>
 </head>
 <body>

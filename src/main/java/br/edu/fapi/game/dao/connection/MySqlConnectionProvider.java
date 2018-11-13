@@ -10,7 +10,7 @@ public class MySqlConnectionProvider {
     public static String senha = "123456";
 
     public static Connection abrirConexao() throws SQLException {
-        DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+        DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
         return DriverManager.getConnection(url, usuario, senha);
     }
 }

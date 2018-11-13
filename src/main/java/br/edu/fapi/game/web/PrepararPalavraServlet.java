@@ -27,7 +27,7 @@ public class PrepararPalavraServlet extends HttpServlet {
 
         req.getSession().setAttribute("jogo.atual", jogo);
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/palavra.jsp");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
         requestDispatcher.forward(req, resp);
     }
 }
