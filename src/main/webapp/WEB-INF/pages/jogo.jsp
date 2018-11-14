@@ -16,16 +16,23 @@
 
     <br>
     <br>
+    <label>Vidas: </label>
+    <%=jogo.getVidas()%>
 
+    <br>
     <label>Chutes: </label>
     <%=jogo.getChute()%>
 
     <hr>
     <form action="fazerChute" method="post">
         <label>Chutes</label>
-        <input type="text" id="txtChute" name="chute">
+        <input type="text" id="txtChute" name="chute" maxlength="1">
 
         <input type="submit" value="chutar">
+    </form>
+    <hr>
+    <form action="desistir" method="post">
+        <input type="submit" value="desistir">
     </form>
 
 </head>

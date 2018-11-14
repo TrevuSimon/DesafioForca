@@ -4,14 +4,15 @@ import br.edu.fapi.game.dao.JogoDAO;
 import br.edu.fapi.game.dao.impl.JogoDAOImpl;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.Calendar;
 
 public class Jogo {
 
     private int id;
     private String nome;
-    private Date dataInicio;
-    private Date dataFim;
+    private Timestamp dataInicio;
+    private Timestamp dataFim;
     private Dificuldade dificuldade;
     private Situacao situacao;
     private int vidas;
@@ -21,7 +22,7 @@ public class Jogo {
 
     public Jogo(String nome, String dificuldade) {
         this.nome = nome;
-        this.dataInicio = new Date(Calendar.getInstance().getTime().getTime());;
+        this.dataInicio = new Timestamp(System.currentTimeMillis());
         this.dificuldade = new Dificuldade(dificuldade);
         this.vidas = this.dificuldade.getVidas();
         this.situacao = new Situacao();
@@ -43,19 +44,19 @@ public class Jogo {
         this.nome = nome;
     }
 
-    public Date getDataInicio() {
+    public Timestamp getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(Timestamp dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataFim() {
+    public Timestamp getDataFim() {
         return dataFim;
     }
 
-    public void setDataFim(Date dataFim) {
+    public void setDataFim(Timestamp dataFim) {
         this.dataFim = dataFim;
     }
 
@@ -125,8 +126,20 @@ public class Jogo {
     }
 
     public void finalizar() {
+        JogoDAO jogoDAO =  new JogoDAOImpl();
+        this.situacao.setId(3);
+        jogoDAO.FinalizarJogo(this);
     }
 
     public void perder() {
+        JogoDAO jogoDAO =  new JogoDAOImpl();
+        this.situacao.setId(2);
+        jogoDAO.PerderJogo(this);
+    }
+
+    public void desistir() {
+        JogoDAO jogoDAO =  new JogoDAOImpl();
+        this.situacao.setId(4);
+        jogoDAO.DesistirJogo(this);
     }
 }

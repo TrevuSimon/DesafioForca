@@ -4,11 +4,7 @@ import br.edu.fapi.game.dao.JogoDAO;
 import br.edu.fapi.game.dao.connection.MySqlConnectionProvider;
 import br.edu.fapi.game.model.Jogo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +24,7 @@ public class JogoDAOImpl implements JogoDAO {
             preparedStatement.setString(1,jogo.getNome());
             preparedStatement.setInt(2,jogo.getDificuldade().getId());
             preparedStatement.setInt(3,jogo.getVidas());
-            preparedStatement.setDate(4,jogo.getDataInicio());
+            preparedStatement.setTimestamp(4,jogo.getDataInicio());
             preparedStatement.setInt(5,jogo.getSituacao().getId());
 
             int result = preparedStatement.executeUpdate();
@@ -71,7 +67,7 @@ public class JogoDAOImpl implements JogoDAO {
     public Jogo pesquisarJogoEmAndamento(Jogo jogo) {
         try (Connection connection = MySqlConnectionProvider.abrirConexao()) {
             PreparedStatement preparedStatement = connection.prepareStatement(
-                    "select * from jogo where nome = ? and idDificuldade = ? and (idSituacao = 1 or idSituacao = 2)",
+                    "select * from jogo where nome = ? and idDificuldade = ? and idSituacao = 1",
                     Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, jogo.getNome());
             preparedStatement.setInt(2, jogo.getDificuldade().getId());
@@ -97,6 +93,66 @@ public class JogoDAOImpl implements JogoDAO {
             if (resultSet.first()) {
                 resultSet.updateString("chute", jogo.getChute());
                 resultSet.updateInt("vidas", jogo.getVidas());
+                resultSet.updateRow();
+                return resultSet.rowUpdated();
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean FinalizarJogo(Jogo jogo) {
+        try(Connection connection = MySqlConnectionProvider.abrirConexao()){
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + jogo.getId());
+            if (resultSet.first()) {
+                resultSet.updateInt("idSituacao", 3);
+                resultSet.updateTimestamp("dataFim", new Timestamp(System.currentTimeMillis()));
+                resultSet.updateRow();
+                return resultSet.rowUpdated();
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean PerderJogo(Jogo jogo) {
+        try(Connection connection = MySqlConnectionProvider.abrirConexao()){
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + jogo.getId());
+            if (resultSet.first()) {
+                resultSet.updateInt("idSituacao", 2);
+                resultSet.updateTimestamp("dataFim", new Timestamp(System.currentTimeMillis()));
+                resultSet.updateRow();
+                return resultSet.rowUpdated();
+            }
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    @Override
+    public boolean DesistirJogo(Jogo jogo) {
+        try(Connection connection = MySqlConnectionProvider.abrirConexao()){
+            Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
+            ResultSet resultSet = statement.executeQuery("select * from jogo where id = " + jogo.getId());
+            if (resultSet.first()) {
+                resultSet.updateInt("idSituacao", 4);
+                resultSet.updateTimestamp("dataFim", new Timestamp(System.currentTimeMillis()));
                 resultSet.updateRow();
                 return resultSet.rowUpdated();
             }

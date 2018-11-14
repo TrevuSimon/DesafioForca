@@ -30,5 +30,5 @@ insert into dificuldade(nome)
 values('facil'),('medio'),('dificil');
 
 insert into Situacao(nome)
-values('iniciado'),('pausado'),('finalizado');
+values('iniciado'),('perdido'),('finalizado'),('abandonado');
 

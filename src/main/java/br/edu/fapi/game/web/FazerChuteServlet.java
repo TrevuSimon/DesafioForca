@@ -18,25 +18,29 @@ public class FazerChuteServlet extends HttpServlet {
         Jogo jogo = (Jogo)req.getSession().getAttribute("jogo.atual");
 
 
-        if(jogo.getVidas() > 0) {
-            if(jogo.getChute() == null){
-                jogo.setChute("");
-            }
-            String chute = jogo.getChute();
 
-            chute += (String) req.getParameter("chute");
+        if(jogo.getChute() == null){
+            jogo.setChute("");
+        }
+        String chute = jogo.getChute();
+
+        if(chute.indexOf(req.getParameter("chute"))==-1) {
+            chute += req.getParameter("chute");
 
             jogo.setChute(chute);
 
-            if(jogo.getPalavra().indexOf(req.getParameter("chute"))==-1){
+            if (jogo.getPalavra().indexOf(req.getParameter("chute")) == -1) {
                 jogo.setVidas(jogo.getVidas() - 1);
             }
+        }
 
+        if(jogo.getVidas() > 0) {
             jogo.atualizar();
             req.getSession().setAttribute("jogo.atual",jogo);
 
             if (jogo.getPalavra().equals(jogo.getPalavraComChutes())) {
                 jogo.finalizar();
+                req.getSession().setAttribute("jogo.atual",jogo);
 
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/finalizar.jsp");
                 requestDispatcher.forward(req, resp);

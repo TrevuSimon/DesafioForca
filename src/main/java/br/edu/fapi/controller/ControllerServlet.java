@@ -20,7 +20,10 @@ public class ControllerServlet extends HttpServlet {
         if ("jogar".equalsIgnoreCase(acao)) {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogar.jsp");
             requestDispatcher.forward(req, resp);
+        }else if("voltarIndex".equalsIgnoreCase(acao)){
+            resp.sendRedirect("index.jsp");
         }
+
     }
 
 }

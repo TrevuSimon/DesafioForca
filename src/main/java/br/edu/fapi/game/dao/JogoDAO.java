@@ -7,4 +7,7 @@ public interface JogoDAO {
     boolean cadastrarPalavra(Jogo jogo);
     Jogo pesquisarJogoEmAndamento(Jogo jogo);
     boolean AtualizarJogo(Jogo jogo);
+    boolean FinalizarJogo(Jogo jogo);
+    boolean PerderJogo(Jogo jogo);
+    boolean DesistirJogo(Jogo jogo);
 }
