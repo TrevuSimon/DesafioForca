@@ -6,4 +6,5 @@ public interface JogoDAO {
     int cadastrarJogo(Jogo jogo);
     boolean cadastrarPalavra(Jogo jogo);
     Jogo pesquisarJogoEmAndamento(Jogo jogo);
+    boolean AtualizarJogo(Jogo jogo);
 }

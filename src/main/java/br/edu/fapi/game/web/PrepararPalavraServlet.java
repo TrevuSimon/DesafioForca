@@ -25,8 +25,6 @@ public class PrepararPalavraServlet extends HttpServlet {
         jogoDAO.cadastrarPalavra(jogo);
         req.getSession().setAttribute("jogo.atual",jogo);
 
-        req.getSession().setAttribute("jogo.atual", jogo);
-
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
         requestDispatcher.forward(req, resp);
     }
