@@ -9,6 +9,10 @@ public class Situacao {
         this.nome = "iniciado";
     }
 
+    public Situacao(int id){
+        this.setId(id);
+    }
+
     public int getId() {
         return id;
     }

@@ -4,7 +4,7 @@
 
 <a href="controller?acao=jogar">Jogar</a><br>
 
-<input type="button" id="btnGerarRelatorios" value="Gerar relatorios"><br>
+<a href="controller?acao=gerarRelatorio">Jogar</a><br>
 
 <input type="button" id="btnSair" value="Sair"><br>
 

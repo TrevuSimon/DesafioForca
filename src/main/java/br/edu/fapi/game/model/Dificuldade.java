@@ -21,6 +21,22 @@ public class Dificuldade {
         }
     }
 
+    public Dificuldade(int id) {
+        if(id == 1){
+            this.setNome("facil");
+            this.setId(1);
+            this.vidas = 7;
+        }else if(id == 2){
+            this.setNome("medio");
+            this.setId(2);
+            this.vidas = 5;
+        }else{
+            this.setNome("dificil");
+            this.setId(3);
+            this.vidas = 3;
+        }
+    }
+
     public int getId() {
         return id;
     }

@@ -22,8 +22,10 @@ public class ControllerServlet extends HttpServlet {
             requestDispatcher.forward(req, resp);
         }else if("voltarIndex".equalsIgnoreCase(acao)){
             resp.sendRedirect("index.jsp");
+        }else if("gerarRelatorios".equalsIgnoreCase(acao)) {
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/relatorios.jsp");
+            requestDispatcher.forward(req, resp);
         }
-
     }
 
 }

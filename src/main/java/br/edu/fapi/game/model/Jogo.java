@@ -30,6 +30,10 @@ public class Jogo {
         this.interrupcoes = 0;
     }
 
+    public Jogo(){
+
+    }
+
     public int getId() {
         return id;
     }
@@ -62,6 +66,14 @@ public class Jogo {
         this.dataFim = dataFim;
     }
 
+    public void setDificuldade(String dificuldade) {
+        this.dificuldade = new Dificuldade(dificuldade);
+    }
+
+    public void setDificuldade(int id) {
+        this.dificuldade = new Dificuldade(id);
+    }
+
     public Dificuldade getDificuldade() {
         return dificuldade;
     }
@@ -72,6 +84,10 @@ public class Jogo {
 
     public void setSituacao(Situacao situacao) {
         this.situacao = situacao;
+    }
+
+    public void setSituacao(int id){
+        this.situacao = new Situacao(id);
     }
 
     public int getVidas() {

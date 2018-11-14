@@ -167,4 +167,33 @@ public class JogoDAOImpl implements JogoDAO {
 
         return false;
     }
+
+    @Override
+    public List<Jogo> listarJogos() {
+        List<Jogo> jogos = new ArrayList<>();
+        try (Connection connection = MySqlConnectionProvider.abrirConexao()) {
+            PreparedStatement preparedStatement = connection
+                    .prepareStatement("select * from jogo", Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Jogo jogo = new Jogo();
+                jogo.setId(resultSet.getInt("id"));
+                jogo.setNome(resultSet.getString("nome"));
+                jogo.setDificuldade(resultSet.getInt("idDificuldade"));
+                jogo.setPalavra(resultSet.getString("palavra"));
+                jogo.setSituacao(resultSet.getInt("idSituacao"));
+                jogo.setChute(resultSet.getString("chute"));
+                jogo.setInterrupcoes(resultSet.getInt("interrupcoes"));
+                jogo.setDataInicio(resultSet.getTimestamp("dataInicio"));
+                jogo.setDataFim(resultSet.getTimestamp("dataFim"));
+                jogos.add(jogo);
+            }
+
+            return jogos;
+        } catch (SQLException e) {
+            System.out.println("Conexão não estabelecida.");
+            System.out.println(e.getMessage());
+        }
+    }
 }
