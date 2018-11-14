@@ -16,6 +16,7 @@ public class Jogo {
     private Dificuldade dificuldade;
     private Situacao situacao;
     private int vidas;
+    private int interrupcoes;
 
     private String palavra;
     private String chute;
@@ -26,6 +27,7 @@ public class Jogo {
         this.dificuldade = new Dificuldade(dificuldade);
         this.vidas = this.dificuldade.getVidas();
         this.situacao = new Situacao();
+        this.interrupcoes = 0;
     }
 
     public int getId() {
@@ -141,5 +143,13 @@ public class Jogo {
         JogoDAO jogoDAO =  new JogoDAOImpl();
         this.situacao.setId(4);
         jogoDAO.DesistirJogo(this);
+    }
+
+    public int getInterrupcoes() {
+        return interrupcoes;
+    }
+
+    public void setInterrupcoes(int interrupcoes) {
+        this.interrupcoes = interrupcoes;
     }
 }

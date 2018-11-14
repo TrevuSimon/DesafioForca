@@ -33,11 +33,10 @@ public class FazerChuteServlet extends HttpServlet {
                 jogo.setVidas(jogo.getVidas() - 1);
             }
         }
+        jogo.atualizar();
+        req.getSession().setAttribute("jogo.atual",jogo);
 
         if(jogo.getVidas() > 0) {
-            jogo.atualizar();
-            req.getSession().setAttribute("jogo.atual",jogo);
-
             if (jogo.getPalavra().equals(jogo.getPalavraComChutes())) {
                 jogo.finalizar();
                 req.getSession().setAttribute("jogo.atual",jogo);

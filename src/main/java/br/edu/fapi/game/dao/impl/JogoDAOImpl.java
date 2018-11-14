@@ -74,7 +74,10 @@ public class JogoDAOImpl implements JogoDAO {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.first()) {
+                jogo.setId(resultSet.getInt("id"));
                 jogo.setPalavra(resultSet.getString("palavra"));
+                jogo.setChute(resultSet.getString("chute"));
+                jogo.setInterrupcoes(resultSet.getInt("interrupcoes"));
                 return jogo;
             }
         } catch (SQLException e) {
@@ -93,6 +96,7 @@ public class JogoDAOImpl implements JogoDAO {
             if (resultSet.first()) {
                 resultSet.updateString("chute", jogo.getChute());
                 resultSet.updateInt("vidas", jogo.getVidas());
+                resultSet.updateInt("interrupcoes", jogo.getInterrupcoes());
                 resultSet.updateRow();
                 return resultSet.rowUpdated();
             }

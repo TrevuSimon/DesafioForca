@@ -23,7 +23,13 @@ public class PrepararJogoServlet extends HttpServlet {
         Jogo jogo = new Jogo(req.getParameter("nome"),req.getParameter("dificuldade"));
 
         if(verificaJogoService.JogoEmAndamento(jogo)){
+            JogoDAO jogoDAO = new JogoDAOImpl();
+            jogo = jogoDAO.pesquisarJogoEmAndamento(jogo);
+
+            jogo.setInterrupcoes(jogo.getInterrupcoes() + 1);
+            jogo.atualizar();
             req.getSession().setAttribute("jogo.atual", jogo);
+
 
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/jogo.jsp");
             requestDispatcher.forward(req, resp);

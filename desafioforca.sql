@@ -22,6 +22,7 @@ create table jogo(
     idSituacao int,
     dataInicio datetime,
     dataFim datetime,
+    interrupcoes int DEFAULT 0,
     FOREIGN KEY (idDificuldade)
       REFERENCES dificuldade(id)
 );
