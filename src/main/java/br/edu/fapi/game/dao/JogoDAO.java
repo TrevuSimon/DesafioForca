@@ -13,4 +13,6 @@ public interface JogoDAO {
     boolean PerderJogo(Jogo jogo);
     boolean DesistirJogo(Jogo jogo);
     List<Jogo> listarJogos();
+    List<Jogo> listarJogosGanhos();
+    List<Jogo> listarJogosPerdidos();
 }

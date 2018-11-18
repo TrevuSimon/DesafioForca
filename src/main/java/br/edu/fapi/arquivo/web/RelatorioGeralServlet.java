@@ -2,6 +2,8 @@ package br.edu.fapi.arquivo.web;
 
 import br.edu.fapi.arquivo.dao.ArquivoDAO;
 import br.edu.fapi.arquivo.dao.impl.ArquivoDAOImpl;
+import br.edu.fapi.game.dao.JogoDAO;
+import br.edu.fapi.game.dao.impl.JogoDAOImpl;
 import br.edu.fapi.game.model.Jogo;
 
 import javax.servlet.ServletException;
@@ -19,6 +21,11 @@ public class RelatorioGeralServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArquivoDAO arquivoDAO = new ArquivoDAOImpl();
         List<Jogo> jogos = new ArrayList<Jogo>();
+        JogoDAO jogoDAO = new JogoDAOImpl();
+
+        jogos = jogoDAO.listarJogos();
+
+        arquivoDAO.escreverJogo(jogos,"RelatorioGeral");
 
 
     }

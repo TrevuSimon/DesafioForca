@@ -11,17 +11,17 @@
     <title>Relatórios</title>
 
     <label>Relatório geral</label>
-    <form action="" method="post">
+    <form action="relatorioGeral" method="post">
         <input type="submit" value="gerar">
     </form><br>
 
     <label>Relatório de vitórios</label>
-    <form action="" method="post">
+    <form action="relatorioVitoria" method="post">
         <input type="submit" value="gerar">
     </form><br>
 
     <label>Relatório de derrotas</label>
-    <form action="" method="post">
+    <form action="/relatorioDerrota" method="post">
         <input type="submit" value="gerar">
     </form><br>
 
