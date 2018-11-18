@@ -6,6 +6,7 @@ import br.edu.fapi.game.dao.JogoDAO;
 import br.edu.fapi.game.dao.impl.JogoDAOImpl;
 import br.edu.fapi.game.model.Jogo;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,6 +28,8 @@ public class RelatorioDerrotaServlet extends HttpServlet {
 
         arquivoDAO.escreverJogo(jogos,"RelatorioPerdidos");
 
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/pages/relatorioGerado.jsp");
+        requestDispatcher.forward(req, resp);
 
     }
 }
