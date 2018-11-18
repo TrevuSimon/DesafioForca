@@ -6,7 +6,7 @@
 
 <a href="controller?acao=gerarRelatorio">Relatorios</a><br>
 
-<input type="button" id="btnSair" value="Sair"><br>
+<a href="https://www.google.com/">Sair</a><br>
 
 </body>
 </html>
