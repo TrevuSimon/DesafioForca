@@ -1,0 +1,31 @@
+@charset "ISO-8859-1";
+
+html {
+	font-family: Colligrapher;
+	font-style: normal;
+	font-weight: 100%;	
+}
+
+.logo {
+	margin-top: 15px;
+	display: flex;
+	justify-content: center;
+}
+
+.play {
+	margin-top: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+.report {
+	margin-top: 45px;
+	display: flex;
+	justify-content: center;
+}
+
+.exit {
+	margin-top: 60px;
+	display: flex;
+	justify-content: center;
+}
