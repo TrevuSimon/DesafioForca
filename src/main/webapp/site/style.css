@@ -36,8 +36,15 @@ html {
 	width: 25%;	
  	position: absolute;
     border: 3px solid #73AD21;
-    padding: 10px; 
-    margin-left: auto;
-    margin-right: auto; 
-    position: absolute; 
+    padding: 10px;
+    font-weight: bold;  
+}
+
+.tablejogo {
+	margin-top: 15px;
+	width: 40%;	
+ 	position: absolute;
+    border: 3px solid #73AD21;
+    padding: 10px;  
+    font-weight: bold;
 }

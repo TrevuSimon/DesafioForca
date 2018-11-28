@@ -9,22 +9,23 @@
 <html>
 <head>
 <title>Palavra</title>
-<link rel="stylesheet" type="text/css" href="site/style.css" />
+
 </head>
 <body>
 	<form action="prepararPalavra" method="post">
-		<table class="table">
+		<table class="table" style="text-align: center;">
 			<tr>
 				<td>DIGITE A PALAVRA</td>
-				<td>AÇÃO</td>
+				<td colspan="3">AÇÃO</td>
 			</tr>
 			<tr>
 				<td>
 					<input type="text" name="palavra" id="txtPalavra" required>				
 				</td>
+				<td>				
+					<input type="submit" value="Jogar">
 				<td>
-					<input type="submit" value="Pronto">
-					<br><br>
+				<td>	
 					<input type="button" value="Voltar"><a href="webapp/index.jsp"></a>
 				</td>
 			</tr>

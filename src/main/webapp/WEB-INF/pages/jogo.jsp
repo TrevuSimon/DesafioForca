@@ -10,33 +10,39 @@
 <html>
 <head>
     <title>Jogo</title>
-    <label>Palavra: </label>
-    <% Jogo jogo=(Jogo)session.getAttribute("jogo.atual");%>
-    <%=jogo.getPalavraComChutes() %>
-
-    <br>
-    <br>
-    <label>Vidas: </label>
-    <%=jogo.getVidas()%>
-
-    <br>
-    <label>Chutes: </label>
-    <%=jogo.getChute()%>
-
-    <hr>
-    <form action="fazerChute" method="post">
-        <label>Chutes</label>
-        <input type="text" id="txtChute" name="chute" maxlength="1">
-
-        <input type="submit" value="chutar">
-    </form>
-    <hr>
-    <form action="desistir" method="post">
-        <input type="submit" value="desistir">
-    </form>
-
+    <link rel="stylesheet" type="text/css" href="site/style.css" />
 </head>
 <body>
-
+	<table class="tablejogo" style="text-align: center;">
+		<tr>
+			<td>PALAVRA</td>
+			<td>VIDAS</td>
+			<td>DIGITOS</td>
+			<td>CHUTE</td>
+			<td>AÇÃO</td>
+		</tr>
+		<tr>
+			<td>
+		    	<% Jogo jogo=(Jogo)session.getAttribute("jogo.atual");%>
+		    	<%=jogo.getPalavraComChutes() %>
+			</td>
+			<td>
+				<%=jogo.getVidas()%>
+			</td>
+			<td>
+				<%=jogo.getChute()%>
+			</td>
+			<td>
+				<form action="fazerChute" method="post">
+        			<input type="text" id="txtChute" name="chute" maxlength="1">
+        			<input type="submit" value="chutar">
+    			</form>
+			</td>
+			<td>
+				<form action="desistir" method="post">
+        			<input type="submit" value="desistir">
+    			</form>
+			</td>
+    </table>
 </body>
 </html>
