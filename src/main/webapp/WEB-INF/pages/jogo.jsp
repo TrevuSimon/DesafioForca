@@ -19,7 +19,7 @@
 			<td>VIDAS</td>
 			<td>DIGITOS</td>
 			<td>CHUTE</td>
-			<td>AÇÃO</td>
+			<td>&darr; Desistir? &darr;</td>
 		</tr>
 		<tr>
 			<td>
@@ -35,12 +35,12 @@
 			<td>
 				<form action="fazerChute" method="post">
         			<input type="text" id="txtChute" name="chute" maxlength="1">
-        			<input type="submit" value="chutar">
+        			<input type="submit" value="&Phi; chutar &Phi;">
     			</form>
 			</td>
 			<td>
 				<form action="desistir" method="post">
-        			<input type="submit" value="desistir">
+        			<input type="image" src="site/desistir.jpg" width="80" height="80">
     			</form>
 			</td>
     </table>

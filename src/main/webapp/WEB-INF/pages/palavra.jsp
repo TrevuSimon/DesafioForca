@@ -8,10 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <html>
 <head>
-<title>Palavra</title>
-
+	<title>Palavra</title>
+	<link rel="stylesheet" type="text/css" href="site/style.css" />
 </head>
 <body>
+	<div>
 	<form action="prepararPalavra" method="post">
 		<table class="table" style="text-align: center;">
 			<tr>
@@ -22,14 +23,13 @@
 				<td>
 					<input type="text" name="palavra" id="txtPalavra" required>				
 				</td>
-				<td>				
-					<input type="submit" value="Jogar">
 				<td>
-				<td>	
-					<input type="button" value="Voltar"><a href="webapp/index.jsp"></a>
+					<a href="index.jsp"><img src="site/voltar.jpg" width="40" height="40"/></a>
+					<input type="image" src="site/avancar.jpg" width="40" height="40">
 				</td>
 			</tr>
 		</table>
 	</form>
+	</div>
 </body>
 </html>

@@ -24,14 +24,13 @@
 					<input type="text" name="nome" id="txtNome" required><br>
 				</td>
 				<td>
-					<input type="radio" name="dificuldade" value="facil"> Fácil<br> 
+					<input type="radio" name="dificuldade" value="facil" required> Fácil<br> 
 					<input type="radio" name="dificuldade" value="medio"> Médio<br> 
 					<input type="radio" name="dificuldade" value="dificil"> Difícil<br>
 				</td>
 				<td>
-					<input type="submit" value="Jogar">
-					<br><br>
-					<input type="button" value="Voltar"><a href="webapp/index.jsp"></a>
+					<a href="index.jsp"><img src="site/voltar.jpg" width="40" height="40"/></a>
+					<input type="image" src="site/avancar.jpg" width="40" height="40">
 				</td>
 			</tr>
 		</table>
