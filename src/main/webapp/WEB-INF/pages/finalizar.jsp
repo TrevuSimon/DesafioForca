@@ -11,9 +11,9 @@
     <title>Title</title>
 	<link rel="stylesheet" type="text/css" href="site/style.css" />
 </head>
-	<body>
-		<% Jogo jogo=(Jogo)session.getAttribute("jogo.atual");%>
-		<table class="table" style="text-align: center;">
+	<% Jogo jogo=(Jogo)session.getAttribute("jogo.atual");%>
+	<body>	
+		<table>
 			<thead>
 				<tr>
 				    <td>

@@ -15,22 +15,30 @@
 	<form action="prepararJogo" method="post">
 		<table class="table">
 			<tr>
-				<th>NOME DO JOGADOR</th>
-				<th>DIFICULDADE</th>
-				<th>AÇÃO</th>
+				<td>
+					<p>NOME DO JOGADOR</p>
+				</td>
+				<td class="tdLeft">
+					<input type="text" name="nome" id="txtNome" required><br>
+				</td>				
 			</tr>
 			<tr>
 				<td>
-					<input type="text" name="nome" id="txtNome" required><br>
+					<p>DIFICULDADE</p>
 				</td>
-				<td>
+				<td class="tdLeft">
 					<input type="radio" name="dificuldade" value="facil" required> Fácil<br> 
 					<input type="radio" name="dificuldade" value="medio"> Médio<br> 
 					<input type="radio" name="dificuldade" value="dificil"> Difícil<br>
 				</td>
+			</tr>
+			<tr>
 				<td>
-					<a href="index.jsp"><img src="site/voltar.jpg" width="40" height="40"/></a>
-					<input type="image" src="site/avancar.jpg" width="40" height="40">
+					<p>AÇÃO</p>
+				</td>
+				<td class="tdLeft">
+					<a href="index.jsp"><img src="site/voltar.jpg" width="50" height="50"/></a>
+					<input type="image" src="site/avancar.jpg" width="50" height="50">
 				</td>
 			</tr>
 		</table>

@@ -1,22 +1,16 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gui_S
-  Date: 14/11/2018
-  Time: 09:50
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Relatórios</title>
 	<link rel="stylesheet" type="text/css" href="site/style.css" />
 </head>
 <body>
-    <table class="table" width="100" style="text-align: center;">
+    <table>
     	<tbody>
     		<tr>
 		       	<td width="150" colspan="3">
-		    		<img src="site/report.png" width="150" height="150">
+		    		<img src="site/report.png" width="150" height="102">
 	    		</td>
     		</tr>
     		<tr>

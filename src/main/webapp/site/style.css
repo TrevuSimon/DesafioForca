@@ -30,22 +30,14 @@ html {
 	justify-content: center;
 }
 
-
-.table {
+table {
 	margin-top: 15px;
-	width: 50%;	
+	width: 600px;
+	height:422px;
     border: 3px solid #73AD21;
     padding: 10px;
     font-weight: bold;  
-}
-
-.tablejogo {
-	margin-top: 15px;
-	width: 80%;	
- 	position: absolute;
-    border: 3px solid #73AD21;
-    padding: 5px;  
-    font-weight: bold;    
+    text-align: center;
 }
 
 tr {
@@ -53,6 +45,10 @@ tr {
     height: 30px;
 }
 
-.minhatabela td {
- min-width: 150px;
+p {
+    font-size: 25;
+}
+
+.tdLeft {
+	text-align: left;
 }
